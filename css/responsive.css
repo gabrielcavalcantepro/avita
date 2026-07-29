@@ -111,9 +111,17 @@
   gap: var(--space-4);
 }
 
-/* Carrossel */
+/* Carrossel — coluna no mobile. align-items da base e "center", que no
+   desktop (row) centraliza os botoes com o carousel verticalmente, mas em
+   coluna vira sizing por fit-content e faz o .carousel (e o antes/depois
+   dentro dele) encolher para quase nada. stretch garante largura cheia. */
 .carousel-wrapper {
   flex-direction: column;
+  align-items: stretch;
+}
+
+.carousel {
+  width: 100%;
 }
 
 .carousel__btn {
