@@ -1,0 +1,157 @@
+/* =========================================================
+   base.css — Instituto Avita
+   Reset + estilos globais
+   ========================================================= */
+
+/* ── Reset minimo ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--color-text);
+  background-color: var(--color-white);
+  line-height: var(--leading-relaxed);
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar customizada ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-dark);
+}
+
+/* ── Selecao ── */
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-white);
+}
+
+/* ── Tipografia base ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+}
+
+h1 { font-size: clamp(2rem, 5vw, var(--text-5xl)); }
+h2 { font-size: clamp(1.75rem, 3.5vw, var(--text-4xl)); margin-bottom: var(--space-6); }
+h3 { font-size: clamp(1.25rem, 2.5vw, var(--text-2xl)); margin-bottom: var(--space-4); }
+h4 { font-size: var(--text-xl); margin-bottom: var(--space-3); }
+
+p {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-body);
+  margin-bottom: var(--space-4);
+}
+
+p:last-child { margin-bottom: 0; }
+
+strong { font-weight: 500; }
+em { font-style: italic; }
+
+ul, ol { list-style: none; }
+
+/* ── Links ── */
+a {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-gold-dark);
+}
+
+/* ── Imagens ── */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Botoes base ── */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ── Barra de progresso de leitura ── */
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--color-gold);
+  z-index: 200;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ── Eyebrow label ── */
+.eyebrow {
+  display: block;
+  font-family: var(--font-label);
+  font-weight: 300;
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-4);
+}
+
+/* ── Ornamento divisor ── */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+  color: var(--color-gold);
+}
+
+.ornament-divider__line {
+  flex: 1;
+  height: 1px;
+  background: var(--color-divider);
+}
+
+.ornament-divider__leaf {
+  width: 48px;
+  height: 40px;
+  color: var(--color-gold);
+  opacity: 0.7;
+}
+
+/* ── Paralax leaf ── */
+.parallax-leaf {
+  will-change: transform;
+}

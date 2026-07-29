@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Test — Instituto Avita</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Josefin+Sans:wght@200;300&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-gold: #c19048;
+      --color-gold-dark: #a6723e;
+      --color-white: #ffffff;
+      --color-cream: #e8e1d1;
+      --color-text: #2c2420;
+      --color-text-body: #4a4540;
+      --color-text-muted: #8a837a;
+      --color-on-dark-muted: rgba(245, 240, 232, 0.7);
+      --shadow-gold: 0 4px 20px rgba(193,144,72,.25);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --font-label: 'Josefin Sans', Arial, sans-serif;
+      --text-xs: 0.75rem;
+      --text-sm: 0.875rem;
+      --text-base: 1rem;
+      --text-lg: 1.125rem;
+      --text-5xl: 3.5rem;
+      --leading-relaxed: 1.65;
+      --tracking-label: 0.15em;
+      --tracking-tight: -0.02em;
+      --space-4: 1rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-16: 4rem;
+      --section-py-lg: 8rem;
+      --radius-md: 4px;
+      --radius-pill: 100px;
+      --transition-base: 300ms cubic-bezier(0.4,0,0.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      font-weight: 300;
+      color: var(--color-text);
+      background-color: var(--color-white);
+      line-height: var(--leading-relaxed);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: var(--color-gold); }
+
+    /* HERO */
+    #hero {
+      background-color: var(--color-cream);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: var(--section-py-lg);
+      padding-bottom: var(--section-py-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Video de fundo */
+    .hero__video-bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      overflow: hidden;
+      background: var(--color-cream);
+    }
+    .hero__video-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      pointer-events: none;
+    }
+    /* Overlay sutil sobre o video */
+    .hero__video-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(232, 225, 209, 0.22);
+      pointer-events: none;
+    }
+
+    /* Conteudo acima do video */
+    #hero .container { position: relative; z-index: 1; }
+
+    .container {
+      width: 100%; max-width: 1200px; margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+    }
+
+    .hero__split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      align-items: center;
+      width: 100%;
+    }
+    @media (min-width: 768px) {
+      .hero__split { grid-template-columns: 55fr 45fr; gap: var(--space-16); }
+    }
+
+    .hero__content {
+      display: flex; flex-direction: column;
+      align-items: center; text-align: center;
+    }
+    @media (min-width: 768px) {
+      .hero__content { align-items: flex-start; text-align: left; }
+    }
+
+    .hero__logo-wrapper { margin-bottom: var(--space-8); }
+    .hero__logo { width: clamp(56px, 8vw, 80px); height: auto; }
+
+    .hero__headline {
+      font-family: var(--font-display); font-weight: 400;
+      color: var(--color-text); letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--space-8);
+    }
+    .hero-line {
+      display: block;
+      font-size: clamp(1.8rem, 4.5vw, var(--text-5xl));
+      line-height: 1.12;
+    }
+    .hero-line--italic { font-style: italic; color: var(--color-gold); }
+
+    .hero__sub {
+      font-size: var(--text-base); color: var(--color-text-body);
+      line-height: var(--leading-relaxed); max-width: 540px;
+      margin-bottom: var(--space-10);
+    }
+    @media (min-width: 768px) { .hero__sub { font-size: var(--text-lg); } }
+
+    .hero__cta-wrap {
+      display: flex; flex-direction: column;
+      align-items: center; gap: var(--space-4);
+    }
+    @media (min-width: 768px) { .hero__cta-wrap { align-items: flex-start; } }
+
+    .hero__info {
+      font-family: var(--font-label); font-size: var(--text-xs);
+      letter-spacing: var(--tracking-label); color: var(--color-text-muted);
+      text-transform: uppercase;
+    }
+
+    .hero__media { position: relative; border-radius: var(--radius-md); overflow: hidden; }
+    .hero__media img {
+      width: 100%; height: 100%; object-fit: cover;
+      border-radius: var(--radius-md);
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.625rem;
+      padding: 1rem 2rem; background: var(--color-gold); color: #fff;
+      font-family: var(--font-body); font-weight: 400; font-size: var(--text-sm);
+      text-transform: uppercase; letter-spacing: var(--tracking-label);
+      text-decoration: none; border: none; border-radius: var(--radius-pill);
+      cursor: pointer; white-space: nowrap;
+      transition: background var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
+    }
+    .btn-primary:hover { background: var(--color-gold-dark); box-shadow: var(--shadow-gold); transform: translateY(-2px); color: #fff; }
+  </style>
+</head>
+<body>
+
+  <section id="hero">
+
+    <!-- Video de fundo -->
+    <div class="hero__video-bg" aria-hidden="true">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="assets/video-gif-site.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="container">
+      <div class="hero__split">
+
+        <!-- Coluna de texto -->
+        <div class="hero__content">
+
+          <div class="hero__logo-wrapper">
+            <img
+              src="assets/images/logo-isotipo.svg"
+              alt="Instituto Avita"
+              class="hero__logo"
+              width="80"
+              height="80"
+            >
+          </div>
+
+          <h1 class="hero__headline">
+            <span class="hero-line">Transforme seu sorriso</span>
+            <span class="hero-line">e harmonize seu rosto</span>
+            <span class="hero-line hero-line--italic">com seguranca, atraves de um</span>
+            <span class="hero-line hero-line--italic">cuidado odontologico avancado</span>
+            <span class="hero-line hero-line--italic">e personalizado.</span>
+          </h1>
+
+          <p class="hero__sub">
+            Uma abordagem integrada que une Reabilitacao Oral e Harmonizacao Orofacial em um so planejamento, pensado para o seu caso, do inicio ao resultado.
+          </p>
+
+          <div class="hero__cta-wrap">
+            <a href="#" class="btn-primary">
+              QUERO MINHA AVALIACAO NO WHATSAPP!
+            </a>
+            <p class="hero__info">
+              [CIDADE/UF] &bull; CRO-[UF] 6928, Reabilitacao Oral | CRO-[UF] 14712, Harmonizacao Orofacial
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Coluna de imagem -->
+        <div class="hero__media">
+          <img
+            src="assets/images/dr-diego.jpg"
+            alt="Instituto Avita, ambiente acolhedor e equipe do Dr. Diego Leite"
+            width="600"
+            height="750"
+          >
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

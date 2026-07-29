@@ -1,0 +1,15 @@
+<!-- PLACEHOLDER: Substituir pelo arquivo oficial do isotipo do Instituto Ávita -->
+<svg viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg" width="44" height="44">
+  <!-- Grupo de folhas -->
+  <path d="M35,85 C30,60 20,45 15,20 C25,35 40,48 45,70"
+        stroke="#c19048" stroke-width="1.2" fill="none"/>
+  <path d="M45,85 C38,58 32,40 35,12 C42,32 52,52 50,75"
+        stroke="#c19048" stroke-width="1.2" fill="none"/>
+  <path d="M50,85 C48,62 50,40 60,15 C58,38 62,60 58,80"
+        stroke="#c19048" stroke-width="1" fill="none"/>
+  <!-- Á estilizado -->
+  <path d="M55,85 L72,25 L89,85" stroke="#c19048" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M62,62 L82,62" stroke="#c19048" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Acento -->
+  <path d="M68,18 L74,8" stroke="#c19048" stroke-width="2" stroke-linecap="round"/>
+</svg>

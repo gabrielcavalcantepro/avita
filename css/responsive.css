@@ -1,0 +1,306 @@
+/* =========================================================
+   responsive.css — Instituto Avita
+   Mobile-first: base = mobile, media queries adicionam desktop
+   ========================================================= */
+
+/* ─────────────────────────────────────────────
+   BASE MOBILE (< 480px)
+───────────────────────────────────────────── */
+
+/* Nav mobile */
+.nav__hamburger {
+  display: flex;
+}
+
+.nav__mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  top: 60px;
+  background: var(--color-white);
+  z-index: 89;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  padding: var(--space-12);
+}
+
+.nav--open .nav__mobile-menu {
+  display: flex;
+}
+
+/* Hero: sempre centralizado, coluna unica */
+.hero__content {
+  align-items: center;
+}
+
+.hero__cta-wrap {
+  align-items: center;
+}
+
+.hero__sub {
+  font-size: var(--text-base);
+}
+
+/* Dores: 1 coluna */
+.dor__list {
+  gap: var(--space-4);
+}
+
+.dor-item {
+  padding: var(--space-5) var(--space-5);
+}
+
+/* Pilares: 1 coluna */
+.pilares__grid {
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+/* Procedimentos: 1 coluna, imagem em cima */
+.proc-block {
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+.proc-block--reverse {
+  direction: ltr;
+}
+
+.proc-block__media {
+  order: -1;
+}
+
+/* Prova social */
+.social-counter__num {
+  font-size: clamp(3rem, 15vw, 5rem);
+}
+
+/* Dr Diego: 1 coluna */
+.dr-diego__grid {
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+}
+
+.dr-diego__foto-wrapper {
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+/* Instagram: 2 colunas */
+.instagram__grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+/* Footer: 1 coluna */
+.footer__grid {
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+}
+
+.footer__bottom {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.footer__policy-links {
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+/* Carrossel */
+.carousel-wrapper {
+  flex-direction: column;
+}
+
+.carousel__btn {
+  display: none;
+}
+
+/* Sections clip-path: reducao no angulo em mobile */
+.section--clip-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+  margin-bottom: -3rem;
+  padding-bottom: calc(var(--section-py) + 3rem);
+}
+
+.section--clip-top {
+  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+  margin-top: -3rem;
+  padding-top: calc(var(--section-py) + 3rem);
+}
+
+/* CTA final */
+.cta-final__lead {
+  font-size: clamp(1.5rem, 6vw, 2rem);
+}
+
+/* ─────────────────────────────────────────────
+   SM: >= 480px
+───────────────────────────────────────────── */
+@media (min-width: 480px) {
+
+  .hero-line {
+    font-size: clamp(2rem, 5vw, var(--text-4xl));
+  }
+
+  .dor-item {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .pilares__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+/* ─────────────────────────────────────────────
+   MD: >= 768px
+───────────────────────────────────────────── */
+@media (min-width: 768px) {
+
+  /* Nav */
+  .nav__hamburger {
+    display: none;
+  }
+
+  .nav__mobile-menu {
+    display: none !important;
+  }
+
+  /* Hero: coluna unica, sempre centralizado */
+
+  .hero__sub {
+    font-size: var(--text-lg);
+  }
+
+  /* Dores: 50/50, foto a direita */
+  .dor__list {
+    gap: var(--space-5);
+  }
+
+  .dor__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+
+  .dor__foto-col {
+    order: 0;
+  }
+
+  /* Pilares: 3 colunas */
+  .pilares__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Procedimentos: 2 colunas */
+  .proc-block {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+
+  .proc-block--reverse {
+    direction: rtl;
+  }
+
+  .proc-block__media {
+    order: 0;
+  }
+
+  /* Dr Diego: 50/50 */
+  .dr-diego__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+
+  .dr-diego__foto-wrapper {
+    max-width: none;
+    margin: 0;
+  }
+
+  /* Instagram: 3 colunas */
+  .instagram__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+  }
+
+  /* Footer: 2 colunas */
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-10);
+  }
+
+  /* Carousel: botoes visiveis */
+  .carousel-wrapper {
+    flex-direction: row;
+  }
+
+  .carousel__btn {
+    display: flex;
+  }
+
+  /* Sections clip-path */
+  .section--clip-bottom {
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+    margin-bottom: -4rem;
+    padding-bottom: calc(var(--section-py) + 4rem);
+  }
+
+  .section--clip-top {
+    clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);
+    margin-top: -4rem;
+    padding-top: calc(var(--section-py) + 4rem);
+  }
+
+}
+
+/* ─────────────────────────────────────────────
+   LG: >= 1024px
+───────────────────────────────────────────── */
+@media (min-width: 1024px) {
+
+  /* Footer: 4 colunas */
+  .footer__grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: var(--space-12);
+  }
+
+  .footer__bottom {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* Procedimentos */
+  .proc-block {
+    gap: var(--space-16);
+  }
+
+  .proc-block__media .img-ph {
+    min-height: 420px;
+  }
+
+}
+
+/* ─────────────────────────────────────────────
+   XL: >= 1280px
+───────────────────────────────────────────── */
+@media (min-width: 1280px) {
+
+  .hero__split {
+    gap: var(--space-24);
+  }
+
+  #dr-diego .dr-diego__grid {
+    gap: var(--space-24);
+  }
+
+  .proc-block {
+    margin-bottom: var(--space-24);
+    padding-bottom: var(--space-24);
+  }
+
+}
