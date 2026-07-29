@@ -97,10 +97,15 @@ section {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ── HERO STICKY WRAPPER — alimenta o scroll da overlay e o dwell da hero ── */
+/* ── HERO STICKY WRAPPER — alimenta o scroll da overlay e o dwell da hero ──
+   Mobile-first: 340vh e a base porque o buffer de fade da overlay e 1.6vh no
+   mobile (vs 0.8vh no desktop, ver animations.js). Sem essa altura extra, o
+   fade da overlay (0 -> 160vh) coincide com o fim do sticky (~160vh) e o
+   dwell da hero (tempo parado na Secao 1 antes de continuar) some por
+   completo. 340vh mantem os mesmos ~80vh de dwell que o desktop tem. */
 .hero-sticky-wrapper {
   position: relative;
-  height: 260vh;
+  height: 340vh;
 }
 
 /* ── HERO — split layout ── */

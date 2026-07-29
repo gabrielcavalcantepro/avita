@@ -193,7 +193,7 @@
       .nav__links { display: flex; }
     }
 
-    /* hero critico — sticky dentro do .hero-sticky-wrapper (260vh), fica atras da overlay */
+    /* hero critico — sticky dentro do .hero-sticky-wrapper (340vh mobile / 260vh desktop), fica atras da overlay */
     #hero {
       background-color: var(--color-cream);
       min-height: 100svh; min-height: 100vh;
@@ -327,10 +327,18 @@
       50% { transform: translateX(-50%) translateY(7px); }
     }
 
-    /* wrapper sticky: alimenta o scroll da overlay e o dwell da hero */
+    /* wrapper sticky: alimenta o scroll da overlay e o dwell da hero.
+       340vh no mobile (buffer de fade = 1.6vh) e 260vh no desktop (buffer =
+       0.8vh) para manter os mesmos ~80vh de dwell nos dois casos — ver
+       responsive.css e animations.js (bufferEnd). */
     .hero-sticky-wrapper {
       position: relative;
-      height: 260vh;
+      height: 340vh;
+    }
+    @media (min-width: 768px) {
+      .hero-sticky-wrapper {
+        height: 260vh;
+      }
     }
 
     /* reveal da hero — .revealed e ligada por revealHero() apos a overlay sumir */
@@ -457,8 +465,9 @@
 
     <!-- ═══════════════════════════════════════════ -->
     <!-- S1: HERO                                    -->
-    <!-- .hero-sticky-wrapper (260vh) mantém a #hero (sticky) atras da    -->
-    <!-- overlay durante toda a animação + dwell. Ver overlay-design.md.  -->
+    <!-- .hero-sticky-wrapper (340vh mobile / 260vh desktop) mantém a #hero -->
+    <!-- (sticky) atras da overlay durante toda a animação + dwell.        -->
+    <!-- Ver overlay-design.md.                                            -->
     <!-- ═══════════════════════════════════════════ -->
     <div class="hero-sticky-wrapper">
     <section id="hero">

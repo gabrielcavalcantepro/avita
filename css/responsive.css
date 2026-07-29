@@ -163,6 +163,12 @@
 ───────────────────────────────────────────── */
 @media (min-width: 768px) {
 
+  /* Hero sticky wrapper: buffer de fade da overlay cai pela metade (0.8vh),
+     entao a altura total tambem cai para manter o mesmo dwell de ~80vh */
+  .hero-sticky-wrapper {
+    height: 260vh;
+  }
+
   /* Nav */
   .nav__hamburger {
     display: none;
