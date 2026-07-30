@@ -423,16 +423,19 @@
   transform: translateY(-4px);
 }
 
-.proc-card__icon {
-  width: 48px;
-  height: 48px;
-  color: var(--color-gold);
+.proc-card__media {
+  width: 100%;
+  aspect-ratio: 8 / 5;
+  border-radius: var(--radius-md);
+  overflow: hidden;
   margin-bottom: 1.25rem;
 }
 
-.proc-card__icon svg {
+.proc-card__media img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .proc-card__titulo {
