@@ -1,0 +1,31 @@
+{
+	"$schema": "https://unpkg.com/wrangler/config-schema.json",
+	"name": "avita-google-reviews-sync",
+	"main": "src/index.js",
+	"compatibility_date": "2026-07-30",
+	// 09:00 UTC = 06:00 em Fortaleza/CE (America/Fortaleza, UTC-3 o ano
+	// inteiro, sem horario de verao). Ajuste se a intencao era outro fuso.
+	"triggers": {
+		"crons": [
+			"0 9 * * *"
+		]
+	},
+	// Place ID nao e segredo (fica publico em qualquer link do Google Maps),
+	// por isso vive aqui como var normal. A API key vive como secret
+	// (`wrangler secret put GOOGLE_PLACES_API_KEY`), nunca neste arquivo.
+	"vars": {
+		"GOOGLE_PLACE_ID": "ChIJ9-DC82RFxwcRtCGfhX28S_k"
+	},
+	// Preencher "id" depois de rodar:
+	//   npx wrangler kv namespace create GOOGLE_REVIEWS_KV
+	// O MESMO id (namespace) tem que ser vinculado tambem na Pages Function
+	// do site (dashboard Cloudflare Pages > Settings > Functions > KV
+	// namespace bindings > variavel GOOGLE_REVIEWS_KV).
+	"kv_namespaces": [
+		{
+			"binding": "GOOGLE_REVIEWS_KV",
+			"id": "0636d7778a4f406ea340f0a2d47b23cf",
+			"remote": true
+		}
+	]
+}
